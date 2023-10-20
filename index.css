@@ -1,5 +1,5 @@
 body {
-	font-family: monospace;
+	font-family: "JetBrains Mono", monospace;
 	color: #ffffff;
 	background-color: #1a1a1a;
 	overflow-x: hidden;
@@ -7,58 +7,56 @@ body {
 
 #header {
 	font-weight: bold;
-	margin: 4px;
+	margin: 4px 4px 4px 0;
 	font-size: 150%;
 }
 
-.project-entry {
-	width: 95vw;
-	font-size: 125%;
-	display: flex;
-	flex-direction: row;
+#project-entries {
+	border: none;
 }
 
-.header--project {
+#projects {
+	width: 100vw;
+}
+
+#projects > tr {
+	width: 75vw;
+	text-align: left;
+}
+
+#projects th:nth-child(1),
+#projects td:nth-child(1) {
 	width: 50%;
-	display: block;
-	color: #ffffff;
 }
 
-.header--commit {
-	color: #ffffff;
-	left: 47.5%;
-	width: 10%;
-	display: block;
+#projects th:nth-child(2),
+#projects td:nth-child(2) {
+	width: 12.5%;
 }
 
-.header--date {
-	color: #ffffff;
-	width: 40%;
-	left: 62.5%;
-	display: block;
+#projects th:nth-child(3),
+#projects td:nth-child(3) {
+	width: 37.5%;
 	text-wrap: nowrap;
+}
+
+.tables__header {
+	font-weight: bold;
+	text-align: left;
 }
 
 .link--project {
 	color: #ffffff;
-	position: absolute;
 	width: 50%;
-	display: block;
 }
 
 .link--commit {
 	color: #ffffff;
-	position: absolute;
-	left: 47.5%;
 	width: 10%;
-	display: block;
 }
 
 .link--date {
 	color: #ffffff;
 	width: 40%;
-	position: absolute;
-	left: 62.5%;
-	display: block;
 	text-wrap: nowrap;
 }

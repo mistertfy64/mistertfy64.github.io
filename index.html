@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>content.mistertfy64.com</title>
   <link rel="stylesheet" href="./index.css">
@@ -10,14 +13,19 @@
 
 <body>
   <h1 id="header">https://content.mistertfy64.com</h1>
+  <span>Last update was <span id="time--last-update">0 seconds</span> ago, Next update in <span id="time--next-update">30 minutes</span>.</span>
+  <br>
+  <span>Click on a project's most recent commit hash to go to its repository.</span>
   <hr>
-  <div id="projects">
-    <div class="project-entry">
-      <strong><span class="link--project">Name</span><span class="link--commit">Commit</span><span class="link--date">Modified</span>
-      </strong>
-      <br>
-    </div>
-  </div>
+  <table id="project-entries">
+    <tbody id="projects">
+      <tr>
+        <th class="table__header">Name</th>
+        <th class="table__header">Commit</th>
+        <th class="table__header">Date Modified</th>
+      </tr>
+    </tbody>
+  </table>
   <script src="./index.js"></script>
 </body>
 
