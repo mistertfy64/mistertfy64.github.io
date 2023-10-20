@@ -3,7 +3,7 @@
 async function initialize() {
 	const data = await (
 		await fetch(
-			"http://api.mistertfy64.com/content-subdomain-project-entries"
+			"https://api.mistertfy64.com/content-subdomain-project-entries"
 		)
 	).json();
 	for (const project of data) {
