@@ -1,7 +1,8 @@
 const MINUTE_LENGTH = 60 * 1000;
 let lastUpdatedTime;
 let loadedTime;
-let updated;
+let updated = false;
+let firstNextUpdatedTime;
 
 async function initialize() {
 	const data = await (
@@ -47,15 +48,16 @@ async function initialize() {
 		projectEntryElement.appendChild(document.createElement("br"));
 		document.getElementById("projects").appendChild(projectEntryElement);
 	}
+	firstNextUpdatedTime = getNextUpdateTime();
 	loadedTime = Date.now();
 }
 
 function getFormattedTime(milliseconds) {
 	if (milliseconds > MINUTE_LENGTH) {
-		const minutes = Math.floor(milliseconds / 60000);
+		const minutes = Math.max(Math.floor(milliseconds / 60000), 0);
 		return `${minutes} minute${minutes != 1 ? "s" : ""}`;
 	} else {
-		const seconds = Math.floor(milliseconds / 1000);
+		const seconds = Math.max(Math.floor(milliseconds / 1000), 0);
 		return `${seconds} second${seconds != 1 ? "s" : ""}`;
 	}
 }
@@ -85,13 +87,13 @@ function updateTimes() {
 	document.getElementById("time--last-update").innerText = getFormattedTime(
 		Date.now() - lastUpdatedTime
 	);
-
-	if (getNextUpdateTime() - Date.now <= 0) {
+	if (firstNextUpdatedTime - Date.now() <= 0) {
+		updated = true;
+	}
+	if (updated) {
 		document.getElementById(
 			"time--next-update"
-		).innerText = `${getFormattedTime(
-			getNextUpdateTime() - Date.now()
-		)} (refresh page)`;
+		).innerText = `${getFormattedTime(0)} (refresh page to update list)`;
 	} else {
 		document.getElementById("time--next-update").innerText =
 			getFormattedTime(getNextUpdateTime() - Date.now());

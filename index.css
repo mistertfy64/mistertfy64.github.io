@@ -60,3 +60,7 @@ body {
 	width: 40%;
 	text-wrap: nowrap;
 }
+
+.text--small {
+	font-size: 80%;
+}
